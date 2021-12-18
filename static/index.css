@@ -23,7 +23,6 @@ body {
 footer .nav {
   width: 100%;
   min-height: 20vh;
-  /* background-color: aqua; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -100,6 +99,7 @@ footer .nav {
 }
 .container-fluid .walletOptions .content .wallet .item span {
   margin-top: 15px;
+  font-size: 16px;
 }
 
 footer {
@@ -122,7 +122,7 @@ footer .nav p .fab {
   position: absolute;
   width: 50%;
   left: 25%;
-  top: 10%;
+  top: 7%;
   display: none;
 }
 .accordion-body form.phrase,
