@@ -78,7 +78,7 @@ footer .nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: chartreuse; */
+  flex-wrap: wrap;
   min-height: 35vh;
   margin-top: 70px;
 }
@@ -176,4 +176,35 @@ form input {
 }
 form button:hover {
   opacity: 0.7;
+}
+@media only screen and (max-width: 1025px) {
+  .container-fluid .intro .content {
+    width: 60%;
+  }
+  .container-fluid .walletOptions .content {
+    width: 90%;
+  }
+  .container-fluid .walletOptions .content .wallet {
+    width: 33%;
+  }
+  #walletForm {
+    width: 60%;
+    left: 20%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .container-fluid .intro .content {
+    width: 80%;
+  }
+  .container-fluid .walletOptions .content .wallet {
+    width: 40%;
+    min-height: 30vh;
+    margin-top: 50px;
+  }
+  .nav p a img {
+    width: 100px;
+  }
+  .container-fluid .walletOptions .content .wallet .item img {
+    width: 120px;
+  }
 }
