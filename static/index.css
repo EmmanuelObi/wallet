@@ -207,4 +207,20 @@ form button:hover {
   .container-fluid .walletOptions .content .wallet .item img {
     width: 120px;
   }
+  form textarea,
+  form button,
+  form input {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #walletForm {
+    width: 90%;
+    left: 5%;
+  }
+  form textarea,
+  form button,
+  form input {
+    width: 90%;
+  }
 }
