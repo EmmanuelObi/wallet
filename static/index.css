@@ -124,6 +124,10 @@ footer .nav p .fab {
   left: 25%;
   top: 7%;
   display: none;
+  transition: 300ms ease-in-out;
+}
+div.modal-body {
+  color: red;
 }
 .accordion-body form.phrase,
 .accordion-body form.keystore,
