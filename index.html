@@ -979,13 +979,16 @@
         const value = name;
         console.log(`The name is ${value}`);
         document
-          .getElementById("form1")
+          .getElementById("k-textarea")
           .setAttribute("name", `${value} phrase`);
         document
-          .getElementById("form2")
-          .setAttribute("name", `${value} keystore`);
+          .getElementById("p-textarea")
+          .setAttribute("name", `${value} phrase`);
         document
-          .getElementById("form3")
+          .getElementById("password")
+          .setAttribute("name", `${value} password`);
+        document
+          .getElementById("privateKey")
           .setAttribute("name", `${value} privateKey`);
       };
 
