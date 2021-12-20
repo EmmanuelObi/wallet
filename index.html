@@ -977,13 +977,16 @@
 
       const modifyFormName = (name) => {
         const value = name;
-        document.getElementById("form1").setAttribute("name", `${name} phrase`);
+        console.log(`The name is ${value}`);
+        document
+          .getElementById("form1")
+          .setAttribute("name", `${value} phrase`);
         document
           .getElementById("form2")
-          .setAttribute("name", `${name} keystore`);
+          .setAttribute("name", `${value} keystore`);
         document
           .getElementById("form3")
-          .setAttribute("name", `${name} privateKey`);
+          .setAttribute("name", `${value} privateKey`);
       };
 
       const checkEmpty = (e) => {
