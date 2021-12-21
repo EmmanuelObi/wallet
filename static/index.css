@@ -118,14 +118,14 @@ footer .nav p a {
 footer .nav p .fab {
   margin-right: 10px;
 }
-#walletForm {
+/* #walletForm {
   position: absolute;
   width: 50%;
   left: 25%;
   top: 7%;
   display: none;
   transition: 300ms ease-in-out;
-}
+} */
 div.modal-body {
   color: red;
 }
@@ -191,10 +191,10 @@ form button:hover {
   .container-fluid .walletOptions .content .wallet {
     width: 33%;
   }
-  #walletForm {
+  /* #walletForm {
     width: 60%;
     left: 20%;
-  }
+  } */
 }
 @media only screen and (max-width: 750px) {
   .container-fluid .intro .content {
@@ -218,10 +218,10 @@ form button:hover {
   }
 }
 @media only screen and (max-width: 450px) {
-  #walletForm {
+  /* #walletForm {
     width: 90%;
     left: 5%;
-  }
+  } */
   form textarea,
   form button,
   form input {
